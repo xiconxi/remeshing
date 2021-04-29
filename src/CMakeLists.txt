@@ -8,6 +8,6 @@ include_directories(${PROJECT_SOURCE_DIR}/external/voronoi/src)
 
 
 add_executable(remeshing ${SOURCES} ${HEADERS}
-        ${PROJECT_SOURCE_DIR}/external/triangulation.cpp MeshUtils.h MeshUtils.cpp)
+        ${PROJECT_SOURCE_DIR}/external/triangulation.cpp )
 target_link_libraries(remeshing pmp_vis triangle)
 

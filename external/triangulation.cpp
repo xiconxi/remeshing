@@ -123,7 +123,6 @@ void TriangleWrapper::run() {
     const size_t dim = m_points.cols();
     std::string flags = generate_command_line_options();
 
-    std::cout << "flags " << flags << std::endl;
     assert(dim == 2);
     if (dim == 2) {
         process_2D_input(flags);
