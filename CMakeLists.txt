@@ -51,5 +51,15 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 endif()
 
 
+set(CMAKE_CXX_STANDARD 14)
+
+add_subdirectory(external/triangle)
+
+# Find include directory.
+find_path (TRIANGLE_INCLUDE_DIRS triangle.h  ${PROJECT_SOURCE_DIR}/external/triangle/)
+
+find_library (TRIANGLE_LIBRARIES NAMES libtriangle.a triangle PATHS ${PROJECT_BINARY_DIR}/external/triangle/)
+
+
 # which directories to process
 add_subdirectory(src/)

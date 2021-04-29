@@ -1,2 +1,5 @@
 build
 .vscode
+cmake-*
+.idea/
+**.DS_Store

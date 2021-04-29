@@ -1,9 +1,13 @@
 file(GLOB SOURCES ./*.cpp)
 file(GLOB HEADERS ./*.h)
 
-add_executable(myviewer ${SOURCES} ${HEADERS})
-target_link_libraries(myviewer pmp_vis)
 
-if (EMSCRIPTEN)
-    set_target_properties(myviewer PROPERTIES LINK_FLAGS "--shell-file ${PROJECT_SOURCE_DIR}/external/pmp-library/src/apps/data/shell.html --preload-file ${PROJECT_SOURCE_DIR}/external/pmp-library/external/pmp-data/off/bunny.off@input.off")
-endif()
+include_directories(${PROJECT_SOURCE_DIR}/external/triangle/)
+include_directories(${PROJECT_SOURCE_DIR}/external/)
+include_directories(${PROJECT_SOURCE_DIR}/external/voronoi/src)
+
+
+add_executable(remeshing ${SOURCES} ${HEADERS}
+        ${PROJECT_SOURCE_DIR}/external/triangulation.cpp MeshUtils.h MeshUtils.cpp)
+target_link_libraries(remeshing pmp_vis triangle)
+
